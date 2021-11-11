@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Icon, getScaledValue, StyleSheet } from "renative";
+import { Icon, getScaledValue, StyleSheet, Button } from "renative";
 import {
   initNavigation,
   withFocusable,
@@ -43,48 +43,83 @@ interface IMenu {
 //   }
 // }
 
-interface IBtn {
-  title: string;
-  focused: any;
-  style: ViewStyle;
-}
+// interface IBtn {
+//   title: string;
+//   focused: any;
+//   style: ViewStyle;
+// }
 
-const Btn: React.FC<IBtn> = (props: IBtn) => {
-  return (
-    <View
-      style={[
-        props.style,
-        props.focused
-          ? { backgroundColor: "red" }
-          : { backgroundColor: "transparent" },
-        styles.button,
-      ]}
-    >
-      <Text style={[styles.buttonText, props.focused ? { opacity: 0.4 } : {}]}>
-        {props.title}
-      </Text>
-    </View>
-  );
-};
+// const Btn: React.FC<IBtn> = (props: IBtn) => {
+//   return (
+//     <View
+//       style={[
+//         props.style,
+//         props.focused
+//           ? { backgroundColor: "red" }
+//           : { backgroundColor: "transparent" },
+//         styles.button,
+//       ]}
+//     >
+//       <Text style={[styles.buttonText, props.focused ? { opacity: 0.4 } : {}]}>
+//         {props.title}
+//       </Text>
+//     </View>
+//   );
+// };
 
-const Button = withFocusable()(Btn);
+// const Button = withFocusable()(Btn);
 
 const Menu: React.FC<IMenu> = (props: IMenu) => {
   return (
     <View style={styles.container}>
       <Text style={themeStyles.text}>Menu</Text>
-      <Button
+      {/* <Button
         title="Home"
         className="focusable"
         onPress={() => {}}
         onEnterPress={() => {}}
+      /> */}
+      <Button
+        title="Home1"
+        onPress={() => {}}
+        iconFont="ionicons"
+        iconName="md-home"
+        iconColor="white"
+        iconSize={24}
+        style={{}}
+        textStyle={{ color: "white", fontSize: 32 }}
+        testID="Home1"
+        activeOpacity={1}
       />
-      <Button title="Home1" onPress={() => {}} onEnterPress={() => {}} />
-      <Button title="Home2" onPress={() => {}} onEnterPress={() => {}} />
+      <Button
+        title="Home2"
+        onPress={() => {}}
+        iconFont="ionicons"
+        iconName="md-home"
+        iconColor="white"
+        iconSize={24}
+        style={{}}
+        textStyle={{ color: "white", fontSize: 32 }}
+        testID="Home2"
+        activeOpacity={1}
+      />
+      <Button
+        title="Home3"
+        onPress={() => {}}
+        iconFont="ionicons"
+        iconName="md-home"
+        iconColor="white"
+        iconSize={24}
+        style={{}}
+        textStyle={{ color: "white", fontSize: 32 }}
+        testID="Home3"
+        activeOpacity={1}
+      />
+      {/* <Button title="Home2" onPress={() => {}} onEnterPress={() => {}} />
       <Button title="Home3" onPress={() => {}} onEnterPress={() => {}} />
       <Button title="Home4" onPress={() => {}} onEnterPress={() => {}} />
       <Button title="Home5" onPress={() => {}} onEnterPress={() => {}} />
-      <Button title="Home6" onPress={() => {}} onEnterPress={() => {}} />
+      <Button title="Home6" onPress={() => {}} onEnterPress={() => {}} /> */}
       {/* <Button
         title="Home"
         iconFont="ionicons"
@@ -99,7 +134,9 @@ const Menu: React.FC<IMenu> = (props: IMenu) => {
   );
 };
 
-export default withFocusable()(Menu);
+export default withFocusable({
+  trackChildren: true,
+})(Menu);
 
 const styles = StyleSheet.create({
   container: {
