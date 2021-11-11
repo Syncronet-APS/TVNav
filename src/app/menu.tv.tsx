@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Icon, getScaledValue, StyleSheet, Button } from "renative";
+import { Icon, getScaledValue, StyleSheet } from "renative";
 import {
   initNavigation,
   withFocusable,
@@ -21,6 +21,7 @@ if (hasWebFocusableUI) {
 
 interface IMenu {
   focusKey: string;
+  setFocus: () => void;
 }
 
 // class Menu extends PureComponent {
@@ -43,33 +44,37 @@ interface IMenu {
 //   }
 // }
 
-// interface IBtn {
-//   title: string;
-//   focused: any;
-//   style: ViewStyle;
-// }
+interface IBtn {
+  title: string;
+  focused: any;
+  style: ViewStyle;
+}
 
-// const Btn: React.FC<IBtn> = (props: IBtn) => {
-//   return (
-//     <View
-//       style={[
-//         props.style,
-//         props.focused
-//           ? { backgroundColor: "red" }
-//           : { backgroundColor: "transparent" },
-//         styles.button,
-//       ]}
-//     >
-//       <Text style={[styles.buttonText, props.focused ? { opacity: 0.4 } : {}]}>
-//         {props.title}
-//       </Text>
-//     </View>
-//   );
-// };
+const Btn: React.FC<IBtn> = (props: IBtn) => {
+  return (
+    <View
+      style={[
+        props.style,
+        props.focused
+          ? { backgroundColor: "red" }
+          : { backgroundColor: "transparent" },
+        styles.button,
+      ]}
+    >
+      <Text style={[styles.buttonText, props.focused ? { opacity: 0.4 } : {}]}>
+        {props.title}
+      </Text>
+    </View>
+  );
+};
 
-// const Button = withFocusable()(Btn);
+const Button = withFocusable()(Btn);
 
 const Menu: React.FC<IMenu> = (props: IMenu) => {
+  React.useEffect(() => {
+    if (hasWebFocusableUI) props.setFocus();
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text style={themeStyles.text}>Menu</Text>
@@ -115,28 +120,11 @@ const Menu: React.FC<IMenu> = (props: IMenu) => {
         testID="Home3"
         activeOpacity={1}
       />
-      {/* <Button title="Home2" onPress={() => {}} onEnterPress={() => {}} />
-      <Button title="Home3" onPress={() => {}} onEnterPress={() => {}} />
-      <Button title="Home4" onPress={() => {}} onEnterPress={() => {}} />
-      <Button title="Home5" onPress={() => {}} onEnterPress={() => {}} />
-      <Button title="Home6" onPress={() => {}} onEnterPress={() => {}} /> */}
-      {/* <Button
-        title="Home"
-        iconFont="ionicons"
-        className="focusable"
-        iconName="md-home"
-        iconColor={Theme.color3}
-        iconSize={Theme.iconSize}
-        style={styles.button}
-        textStyle={styles.buttonText}
-      /> */}
     </View>
   );
 };
 
-export default withFocusable({
-  trackChildren: true,
-})(Menu);
+export default withFocusable()(Menu);
 
 const styles = StyleSheet.create({
   container: {
@@ -147,7 +135,7 @@ const styles = StyleSheet.create({
     backgroundColor: Theme.color1,
     alignItems: "center",
     borderRightWidth: getScaledValue(hasHorizontalMenu ? 0 : 1),
-    borderBottomWidth: getScaledValue(hasHorizontalMenu ? 1 : 0),
+    borderBottomWidth: getScaledValue(hasHorizontalMenu ? 0 : 0),
     borderColor: Theme.color5,
     flexDirection: hasHorizontalMenu ? "row" : "column",
   },
