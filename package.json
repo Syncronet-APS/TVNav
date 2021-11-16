@@ -2,22 +2,25 @@
     "name": "TVNav",
     "version": "0.1.0",
     "dependencies": {
-        "renative": "0.31.3",
-        "react": "16.13.1",
-        "react-art": "16.13.1",
-        "react-dom": "16.13.1",
-        "react-native": "0.61.2",
-        "react-native-web": "0.13.12",
-        "react-native-web-image-loader": "0.0.5",
-        "react-native-gesture-handler": "1.4.1",
-        "react-native-reanimated": "1.0.0-alpha.12",
-        "react-native-vector-icons": "6.6.0",
-        "@noriginmedia/react-spatial-navigation": "2.12.1"
+        "@noriginmedia/react-spatial-navigation": "latest",
+        "@types/react-native": "^0.66.4",
+        "raf": "3.4.1",
+        "react": "latest",
+        "react-art": "latest",
+        "react-dom": "latest",
+        "react-lrud": "latest",
+        "react-native": "latest",
+        "react-native-gesture-handler": "latest",
+        "react-native-reanimated": "latest",
+        "react-native-vector-icons": "latest",
+        "react-native-web": "latest",
+        "react-native-web-image-loader": "latest",
+        "renative": "latest"
     },
     "devDependencies": {
-        "rnv": "0.31.3",
-        "renative-template-hello-world": "0.31.3",
+        "@rnv/engine-rn-web": "0.31.3",
         "renative-template-blank": "0.31.3",
-        "@rnv/engine-rn-web": "0.31.3"
+        "renative-template-hello-world": "0.31.3",
+        "rnv": "0.31.3"
     }
 }

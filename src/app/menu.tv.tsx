@@ -13,8 +13,8 @@ import { Text, View, ViewStyle } from "react-native";
 
 if (hasWebFocusableUI) {
   initNavigation({
-    debug: false,
-    visualDebug: false,
+    debug: true,
+    visualDebug: true,
     nativeMode: false,
   });
 }
@@ -23,26 +23,6 @@ interface IMenu {
   focusKey: string;
   setFocus: () => void;
 }
-
-// class Menu extends PureComponent {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text style={themeStyles.text}>Menu</Text>
-//         {/* <Button
-//           title="Home"
-//           iconFont="ionicons"
-//           className="focusable"
-//           iconName="md-home"
-//           iconColor={Theme.color3}
-//           iconSize={Theme.iconSize}
-//           style={styles.button}
-//           textStyle={styles.buttonText}
-//         /> */}
-//       </View>
-//     );
-//   }
-// }
 
 interface IBtn {
   title: string;

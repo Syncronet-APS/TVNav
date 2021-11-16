@@ -6,18 +6,25 @@ import Theme, { themeStyles } from "../config";
 const App = () => {
   const [key, setKey] = React.useState("a");
 
-  document.addEventListener("keydown", function (e) {
+  window.addEventListener("keydown", function (e) {
     setKey(e.toString());
   });
 
+  function keypress(e) {
+    setKey(e.which.toString());
+  }
+
   return (
-    <View style={[themeStyles.app, { backgroundColor: "#323232" }]}>
+    <View style={[{ backgroundColor: "#323232", flex: 1 }]}>
+      {/* <div
+        id="keyboard"
+        tabIndex={0}
+        onKeyDown={keypress}
+        // onKeyUp={this.stopNote}
+      > */}
       <Text style={{ color: "white" }}>{key}</Text>
       <Menu focusKey="menu" />
-      <Menu focusKey="menu" />
-      <View
-        style={{ backgroundColor: Theme.color1, width: "100%", height: 50 }}
-      />
+      {/* </div> */}
     </View>
   );
 };

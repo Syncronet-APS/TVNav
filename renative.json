@@ -1,112 +1,115 @@
 {
-    "plugins": {
-        "renative": "source:rnv",
-        "react": "source:rnv",
-        "react-art": "source:rnv",
-        "react-dom": "source:rnv",
-        "react-native": "source:rnv",
-        "react-native-web": "source:rnv",
-        "react-native-web-image-loader": "source:rnv",
-        "react-native-gesture-handler": "source:rnv",
-        "react-native-reanimated": "source:rnv",
-        "react-native-vector-icons": "source:rnv",
-        "@noriginmedia/react-spatial-navigation": "source:rnv"
-    },
-    "permissions": {
-        "ios": {},
-        "android": {
-            "INTERNET": {
-                "key": "android.permission.INTERNET",
-                "security": "normal"
-            },
-            "SYSTEM_ALERT_WINDOW": {
-                "key": "android.permission.SYSTEM_ALERT_WINDOW",
-                "security": "signature"
-            }
-        }
-    },
-    "platforms": {
-        "android": {
-            "gradle.properties": {
-                "android.useDeprecatedNdk": true
-            },
-            "AndroidManifest": {
-                "children": [
-                    {
-                        "tag": "application",
-                        "android:name": ".MainApplication",
-                        "android:usesCleartextTraffic": true,
-                        "tools:targetApi": 28
-                    }
-                ]
-            }
-        },
-        "androidtv": {
-            "gradle.properties": {
-                "android.useDeprecatedNdk": true
-            },
-            "AndroidManifest": {
-                "children": [
-                    {
-                        "tag": "application",
-                        "android:name": ".MainApplication",
-                        "android:usesCleartextTraffic": true,
-                        "tools:targetApi": 28
-                    }
-                ]
-            }
-        },
-        "androidwear": {
-            "gradle.properties": {
-                "android.useDeprecatedNdk": true
-            },
-            "AndroidManifest": {
-                "children": [
-                    {
-                        "tag": "application",
-                        "android:name": ".MainApplication",
-                        "android:usesCleartextTraffic": true,
-                        "tools:targetApi": 28
-                    }
-                ]
-            }
-        }
-    },
-    "projectName": "TVNav",
-    "workspaceID": "rnv",
-    "paths": {
-        "appConfigsDir": "./appConfigs",
-        "entryDir": "./",
-        "platformAssetsDir": "./platformAssets",
-        "platformBuildsDir": "./platformBuilds"
-    },
-    "defaults": {
-        "title": "TVNav",
-        "id": "com.mycompany.tvnav",
-        "supportedPlatforms": [
-            "android",
-            "androidtv",
-            "androidwear",
-            "chromecast",
-            "firefoxos",
-            "firefoxtv",
-            "ios",
-            "kaios",
-            "macos",
-            "tizen",
-            "tizenmobile",
-            "tizenwatch",
-            "tvos",
-            "web",
-            "webos",
-            "windows"
+  "plugins": {
+    "renative": { "version": "latest" },
+    "react": { "version": "latest" },
+    "react-art": { "version": "latest" },
+    "react-dom": { "version": "latest" },
+    "react-native": { "version": "latest" },
+    "react-native-web": { "version": "latest" },
+    "react-native-web-image-loader": { "version": "latest" },
+    "react-native-gesture-handler": { "version": "latest" },
+    "react-native-reanimated": { "version": "latest" },
+    "react-native-vector-icons": { "version": "latest" },
+    "@noriginmedia/react-spatial-navigation": { "version": "latest" },
+    "react-lrud": {
+      "version": "latest"
+    }
+  },
+  "permissions": {
+    "ios": {},
+    "android": {
+      "INTERNET": {
+        "key": "android.permission.INTERNET",
+        "security": "normal"
+      },
+      "SYSTEM_ALERT_WINDOW": {
+        "key": "android.permission.SYSTEM_ALERT_WINDOW",
+        "security": "signature"
+      }
+    }
+  },
+  "platforms": {
+    "android": {
+      "gradle.properties": {
+        "android.useDeprecatedNdk": true
+      },
+      "AndroidManifest": {
+        "children": [
+          {
+            "tag": "application",
+            "android:name": ".MainApplication",
+            "android:usesCleartextTraffic": true,
+            "tools:targetApi": 28
+          }
         ]
+      }
     },
-    "templates": {
-        "renative-template-blank": {
-            "version": "0.31.3"
-        }
+    "androidtv": {
+      "gradle.properties": {
+        "android.useDeprecatedNdk": true
+      },
+      "AndroidManifest": {
+        "children": [
+          {
+            "tag": "application",
+            "android:name": ".MainApplication",
+            "android:usesCleartextTraffic": true,
+            "tools:targetApi": 28
+          }
+        ]
+      }
     },
-    "currentTemplate": "renative-template-blank",
-    "isMonorepo": false
+    "androidwear": {
+      "gradle.properties": {
+        "android.useDeprecatedNdk": true
+      },
+      "AndroidManifest": {
+        "children": [
+          {
+            "tag": "application",
+            "android:name": ".MainApplication",
+            "android:usesCleartextTraffic": true,
+            "tools:targetApi": 28
+          }
+        ]
+      }
+    }
+  },
+  "projectName": "TVNav",
+  "workspaceID": "rnv",
+  "paths": {
+    "appConfigsDir": "./appConfigs",
+    "entryDir": "./",
+    "platformAssetsDir": "./platformAssets",
+    "platformBuildsDir": "./platformBuilds"
+  },
+  "defaults": {
+    "title": "TVNav",
+    "id": "com.mycompany.tvnav",
+    "supportedPlatforms": [
+      "android",
+      "androidtv",
+      "androidwear",
+      "chromecast",
+      "firefoxos",
+      "firefoxtv",
+      "ios",
+      "kaios",
+      "macos",
+      "tizen",
+      "tizenmobile",
+      "tizenwatch",
+      "tvos",
+      "web",
+      "webos",
+      "windows"
+    ]
+  },
+  "templates": {
+    "renative-template-blank": {
+      "version": "0.31.3"
+    }
+  },
+  "currentTemplate": "renative-template-blank",
+  "isMonorepo": false
 }
